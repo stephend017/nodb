@@ -1,0 +1,30 @@
+{
+  "name": "nodb-js",
+  "version": "0.0.3",
+  "description": "An elegant database solution for frontend developers",
+  "main": "dist/index.jsx",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stephend017/nodb.git"
+  },
+  "keywords": [
+    "database",
+    "frontend",
+    "web"
+  ],
+  "author": "Stephen Davis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stephend017/nodb/issues"
+  },
+  "homepage": "https://github.com/stephend017/nodb#readme",
+  "dependencies": {},
+  "prepublish": "tsc",
+  "devDependencies": {
+    "typescript": "^2.9.2"
+  }
+}
