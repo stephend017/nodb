@@ -6,7 +6,7 @@ export { NDBRecord, NDBConfig};
 export { NDBRecordKeyType, NDBAttribute }from './src/record';
 
 export default class NoDB {
-    static config: NDBConfig;
+    private static config: NDBConfig;
 
     public static Init(config: NDBConfig) {
         NoDB.config = config;
