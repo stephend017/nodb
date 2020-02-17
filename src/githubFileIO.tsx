@@ -1,14 +1,16 @@
 import { NDBConfig } from "./config";
 import { NDBRecord } from "./record";
 
-export function getFile(config: NDBConfig, record: NDBRecord) {
-    return fetch(getURL(config, record), {
+export async function getFile(config: NDBConfig, record: NDBRecord) {
+    const response = await fetch(getURL(config, record), {
         method: 'GET',
         headers: {
             'Authorization': 'token ' + config.github_oauth_token,
             'Content-type': 'application/json'
         },
-    }).then(response => response.json().then(responseJson => window.atob(responseJson['content'])));
+    });
+    const responseJson = await response.json();
+    return window.atob(responseJson['content']);
 }
 
 export function createFile(config: NDBConfig, record: NDBRecord) {
@@ -71,14 +73,16 @@ export function deleteFile(config: NDBConfig, record: NDBRecord) {
 
 }
 
-export function getFileSHA(config: NDBConfig, record: NDBRecord) {
-    return fetch(getURL(config, record), {
+export async function getFileSHA(config: NDBConfig, record: NDBRecord) {
+    const response = await fetch(getURL(config, record), {
         method: 'GET',
         headers: {
             'Authorization': 'token ' + config.github_oauth_token,
             'Content-type': 'application/json'
         },
-    }).then(response => response.json().then(responseJson => responseJson['sha']));
+    });
+    const responseJson = await response.json();
+    return responseJson['sha'];
 }
 
 function getURL(config: NDBConfig, record: NDBRecord): string {

@@ -20,8 +20,8 @@ export default class NoDB {
         modifyFile(NoDB.config, newRecord);
     }
 
-    public static Get(record: NDBRecord) {
-        return getFile(NoDB.config, record);
+    public static async Get(record: NDBRecord) {
+        return await getFile(NoDB.config, record);
     }
 
     public static Delete(record: NDBRecord) {
