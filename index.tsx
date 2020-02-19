@@ -3,7 +3,7 @@ import { NDBRecord } from "./src/record";
 import { createFile, modifyFile, getFile, deleteFile } from "./src/githubFileIO";
 
 export { NDBRecord, NDBConfig };
-export { NDBRecordKeyType, NDBAttribute } from './src/record';
+export { NDBRecordKeyType } from './src/record';
 
 /**
  * JS Wrapper for NoDB
@@ -40,8 +40,8 @@ export default class NoDB {
      * Returns the JSON object of the record being returned
      * @param record type and key of record to get from the database
      */
-    public static async Get(record: NDBRecord): Promise<any> {
-        return JSON.parse(await getFile(NoDB.config, record));
+    public static async Get<RecordType extends NDBRecord>(record: RecordType): Promise<RecordType> {
+        return JSON.parse(await getFile(NoDB.config, record)) as RecordType;
     }
 
     /**

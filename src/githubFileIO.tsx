@@ -26,7 +26,7 @@ export function createFile(config: NDBConfig, record: NDBRecord) {
                 "name": config.repositoryOwner,
                 "email": config.ownerEmail
             },
-            "content": window.btoa(record.ToJSON())
+            "content": window.btoa(JSON.stringify(record))
         }),
     })
 }
@@ -46,7 +46,7 @@ export function modifyFile(config: NDBConfig, record: NDBRecord) {
                     "email": config.ownerEmail
                 },
                 "sha": sha,
-                "content": window.btoa(record.ToJSON())
+                "content": window.btoa(JSON.stringify(record))
             }),
         })
     })
