@@ -1,6 +1,6 @@
 {
   "name": "nodb-js",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "An elegant database solution for frontend developers",
   "main": "dist/index.jsx",
   "types": "dist/index.d.ts",
